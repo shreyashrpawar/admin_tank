@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 export function middleware(req) {
   const token = cookies().get('token'); // Get the token from cookies
 
-  const protectedRoutes = ['/dashboard', '/profile', '/products', '/redeem', '/requests'];
+  const protectedRoutes = ['/', '/profile', '/products', '/redeem', '/requests'];
 
   if (protectedRoutes.includes(req.nextUrl.pathname) && !token) {
     return NextResponse.redirect(new URL('/login', req.url)); // Redirect to login if not authenticated
@@ -14,5 +14,5 @@ export function middleware(req) {
 }
 
 export const config = {
-  matcher: ['/dashboard', '/profile', '/products', '/redeem', '/requests'],
+  matcher: ['/', '/profile', '/products', '/redeem', '/requests'],
 };
