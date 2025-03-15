@@ -27,7 +27,6 @@ export default function login(){
       if (res.ok) {
         Cookies.set("token", data.access_token, { expires: 7 });
         localStorage.setItem("token", data.access_token); // Store token
-        localStorage.setItem("gst", data.user['GST_no']);
         router.push("/"); // Redirect to dashboard
       } else {
         alert(data.message || "Login failed");
