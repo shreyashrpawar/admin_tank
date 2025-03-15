@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 
@@ -37,6 +37,12 @@ export default function login(){
       alert("Something went wrong!");
     }
   };
+  useEffect(()=>{
+      const token = Cookies.get('token');
+            if (token) {
+              window.location.href = '/';
+            }
+    },[])
 
   return(
     <section className="bg-gray-50 dark:bg-gray-900">
