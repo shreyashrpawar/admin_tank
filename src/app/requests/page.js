@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 export default function requests(){
   
     const [GST_number, setGST_number] = useState("");
-    const [hashTag, setHashTag] = useState("");
+    const [hashTag, setHashTag] = useState(null);
     const [amount,setAmount]=useState(0);
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -32,7 +32,7 @@ export default function requests(){
         if (res.ok) {
           alert("Submitted successfully!");
           setGST_number("");
-          setHashTag("");
+          setHashTag(null);
           setAmount(0);
         } else {
           alert(data.message || "Form failed!");
@@ -56,7 +56,7 @@ export default function requests(){
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-lg w-96 space-y-4"
       >
-        <h2 className="text-2xl font-bold text-center">Add Requests</h2>
+        <h2 className="text-2xl font-bold text-center">Add Purchase value</h2>
 
         {/* GST Number */}
         <input
@@ -68,7 +68,7 @@ export default function requests(){
           required
         />
 
-        {/* HashTag */}
+        {/* HashTag
         <input
           type="text"
           placeholder="HashTag"
@@ -76,7 +76,7 @@ export default function requests(){
           onChange={(e) => setHashTag(e.target.value)}
           className="w-full p-2 border border-gray-300 rounded"
           required
-        />
+        /> */}
 
         {/* Amount */}
         <input
